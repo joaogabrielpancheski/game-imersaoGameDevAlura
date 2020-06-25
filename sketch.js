@@ -20,28 +20,13 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
   scenery = new Scenery(sceneryImage, 3);
-  character = new Character(
-    characterImage,
-    4,
-    4,
-    110,
-    135,
-    50,
-    220,
-    270
-  );
-  enemie = new Enemie(
-    enemieImage,
-    4,
-    7,
-    52,
-    52,
-    width,
-    104,
-    104
-  );
+  character = new Character(characterImage, 4, 4, 16, 110, 135, 50, 30, 220, 270);
+  enemie = new Enemie(enemieImage, 4, 7, 28, 52, 52, width, 30, 104, 104);
+
   frameRate(40);
+
   gameSound.loop();
 }
 

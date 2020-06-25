@@ -2,25 +2,29 @@ class Character extends Animation {
   constructor(
     image,
     frameQuantityX,
-    frameQuantitY,
+    frameQuantityY,
+    frameQuantityTotal,
     characterWidth,
     characterHeight,
     positionX,
+    yVariation,
     spriteWidth,
     spriteHeight
   ) {
     super(
       image,
       frameQuantityX,
-      frameQuantitY,
+      frameQuantityY,
+      frameQuantityTotal,
       characterWidth,
       characterHeight,
       positionX,
+      yVariation,
       spriteWidth,
       spriteHeight
     );
 
-    this.initialYPosition = height - this.characterHeight;
+    this.initialYPosition = height - this.characterHeight - yVariation;
     this.positionY = this.initialYPosition;
     this.jumpVelocity = 0;
     this.gravity = 3;

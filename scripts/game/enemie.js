@@ -2,20 +2,24 @@ class Enemie extends Animation {
   constructor(
     image,
     frameQuantityX,
-    frameQuantitY,
+    frameQuantityY,
+    frameQuantityTotal,
     characterWidth,
     characterHeight,
     positionX,
+    yVariation,
     spriteWidth,
     spriteHeight
   ) {
     super(
       image,
       frameQuantityX,
-      frameQuantitY,
+      frameQuantityY,
+      frameQuantityTotal,
       characterWidth,
       characterHeight,
       positionX,
+      yVariation,
       spriteWidth,
       spriteHeight
     );
@@ -26,7 +30,7 @@ class Enemie extends Animation {
   move() {
     this.positionX -= this.speed;
 
-    if (this.positionX < -this.characterWidth) {
+    if (this.positionX < (- this.characterWidth)) {
       this.positionX = width;
     }
   }
