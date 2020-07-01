@@ -2,32 +2,41 @@ class Character extends Animation {
   constructor(
     image,
     frameQuantityX,
-    frameQuantitY,
+    frameQuantityY,
+    frameQuantityTotal,
     characterWidth,
     characterHeight,
     positionX,
+    yVariation,
     spriteWidth,
     spriteHeight
   ) {
     super(
       image,
       frameQuantityX,
-      frameQuantitY,
+      frameQuantityY,
+      frameQuantityTotal,
       characterWidth,
       characterHeight,
       positionX,
+      yVariation,
       spriteWidth,
       spriteHeight
     );
 
-    this.initialYPosition = height - this.characterHeight;
+    this.initialYPosition = height - this.characterHeight - yVariation;
     this.positionY = this.initialYPosition;
     this.jumpVelocity = 0;
-    this.gravity = 3;
+    this.gravity = 6;
+    this.jumpHeight = -50;
+    this.jumps = 0;
   }
 
   jump() {
-    this.jumpVelocity = -30;
+    if (this.jumps < 2) {
+      this.jumpVelocity = this.jumpHeight;
+      this.jumps++;
+    }
   }
 
   applyGravity() {
@@ -36,6 +45,7 @@ class Character extends Animation {
 
     if (this.positionY > this.initialYPosition) {
       this.positionY = this.initialYPosition;
+      this.jumps = 0;
     }
   }
 

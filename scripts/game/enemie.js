@@ -2,31 +2,39 @@ class Enemie extends Animation {
   constructor(
     image,
     frameQuantityX,
-    frameQuantitY,
+    frameQuantityY,
+    frameQuantityTotal,
     characterWidth,
     characterHeight,
     positionX,
+    yVariation,
     spriteWidth,
-    spriteHeight
+    spriteHeight,
+    velocity,
+    delay
   ) {
     super(
       image,
       frameQuantityX,
-      frameQuantitY,
+      frameQuantityY,
+      frameQuantityTotal,
       characterWidth,
       characterHeight,
       positionX,
+      yVariation,
       spriteWidth,
       spriteHeight
     );
 
-    this.speed = 10;
+    this.velocity = velocity;
+    this.delay = delay;
+    this.positionX = width + this.delay;
   }
 
   move() {
-    this.positionX -= this.speed;
+    this.positionX -= this.velocity;
 
-    if (this.positionX < -this.characterWidth) {
+    if (this.positionX < (- this.characterWidth - this.delay)) {
       this.positionX = width;
     }
   }

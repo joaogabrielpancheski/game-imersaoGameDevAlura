@@ -3,19 +3,23 @@ class Animation {
     image,
     frameQuantityX,
     frameQuantityY,
+    frameQuantityTotal,
     characterWidth,
     characterHeight,
     positionX,
+    yVariation,
     spriteWidth,
     spriteHeight
   ) {
     this.image = image;
     this.frameQuantityX = frameQuantityX;
     this.frameQuantityY = frameQuantityY;
+    this.frameQuantityTotal = frameQuantityTotal;
     this.characterWidth = characterWidth;
     this.characterHeight = characterHeight;
     this.positionX = positionX;
-    this.positionY = height - this.characterHeight;
+    this.yVariation = yVariation;
+    this.positionY = height - this.characterHeight - this.yVariation;
     this.spriteWidth = spriteWidth;
     this.spriteHeight = spriteHeight;
     this.currentFrame = 0;
@@ -41,7 +45,7 @@ class Animation {
   }
 
   animate() {
-    if (this.currentFrame >= (this.frameQuantityX * this.frameQuantityY) - 1) {
+    if (this.currentFrame >= (this.frameQuantityTotal - 1)) {
       this.currentFrame = 0;
     } else {
       this.currentFrame++;
